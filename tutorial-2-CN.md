@@ -10,7 +10,6 @@ Algorand Standard Asset 是 Algorand 内置的标准资产模型，包含了 fun
 
 详细说明请参考：https://developer.algorand.org/docs/features/asa/
 
-
 ### 构造 ASA 交易
 
 打开教程一的 Dynamic Fee 项目，在 tests 目录下有 3 个和 ASA 交易相关的文件：
@@ -26,8 +25,9 @@ Algorand Standard Asset 是 Algorand 内置的标准资产模型，包含了 fun
 - Transfer: 转账交易
 - Other: freeze, revoke, clawback, destory
 
-更多关于ASA的交易类型，参见 https://developer.algorand.org/docs/features/asa/#asset-functions
+更多关于ASA的交易类型，参见
 
+https://developer.algorand.org/docs/features/asa/#asset-functions
 
 ## ASC Example: LimitOrder
 
@@ -53,7 +53,9 @@ contract.teal 包含了 LimitOrder 合约的所有逻辑，使用 TEAL 语言进
 
 ### 合约代码
 
-代码解析参见 https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-overview
+代码解析参见
+
+https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-overview
 
 ### 编译合约
 

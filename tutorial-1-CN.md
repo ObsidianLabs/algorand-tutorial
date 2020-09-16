@@ -28,7 +28,6 @@ Algorand Studio 在创建 algorand node 的时候会帮助用户自动下载 sna
 
 目前 algorand studio 仅支持测试网。
 
-
 ### 创建Algorand地址
 
 完成 Algorand node 的启动后，首先需要创建钥匙对来完成后续的合约部署以及调用。
@@ -44,7 +43,6 @@ Algorand Studio 在创建 algorand node 的时候会帮助用户自动下载 sna
 </p>
 
 为了顺利完成接下来教程，首先需要创建三个钥匙对并命名为：Alice，Bob 和 Charlie
-
 
 ## 基础操作
 
@@ -80,13 +78,11 @@ Algorand Studio 在创建 algorand node 的时候会帮助用户自动下载 sna
 
 完成后再次刷新页面，Alice 的余额变为 79.753 ALGO，Bob 的余额为 20 ALGO，这是因为除了给 Bob 转出的 20 ALGO 外，还有从 Alice 账户中扣除的转账手续费。
 
-
 ## Algorand smart contract (ASC)
 
 TEAL是原生写 algorand 智能合约语言，它是一种类似 Assembly 的语言，由 Algorand 官方开发。
 
 https://developer.algorand.org/docs/reference/teal/specification/
-
 
 ### 创建项目（模板DynamicFee）
 
@@ -101,7 +97,6 @@ https://developer.algorand.org/docs/reference/teal/specification/
 使用 TEAL 编写代码并不方便，为此 Alogrand 开发了 PyTeal。Pyteal 是通过 python 语法来编写代码，然后通过 Pyteal 编译器编译成 teal，然后编译成二进制。
 
 https://developer.algorand.org/docs/features/asc1/teal/pyteal/
-
 
 ### 编译合约
 
@@ -119,14 +114,13 @@ https://developer.algorand.org/docs/features/asc1/teal/pyteal/
 
 点击工具栏的锤子按钮进行编译，编译完成后的合约不需要部署，只需要在调用时附加合约代码(.tok)，通过地址即可检查代码是否真实。
 
-
 ### 合约代码
 
 Dynamic fee 合约实现了一个代付交易费的功能。上文中的转账交易费是由 Alice 来支付的，如果使用 Dynamic fee 合约来进行转账，是可以由别的账户来支付这笔交易费。
 
 合约代码具体解析参见
-https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee/
 
+https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee/
 
 ## 构造交易 & 调用合约
 
@@ -157,27 +151,34 @@ Alogrand Studio 通过 json 文件来定义 transaction。
 交易完成后切换至区块浏览器并刷新 Alice 页面，可以看到余额减少了 10+ ALGO，下方的交易记录中也多出了刚刚的那笔转账记录。
 
 #### atomic transfer
+
 atomic transfer 保证多笔交易同时成功和同时失败。
+
 https://developer.algorand.org/docs/features/atomic_transfers
 
 #### multisig
+
 multisig 支持多个账户给这笔交易签名。
+
 https://developer.algorand.org/docs/features/accounts/create/#multisignature
 
 ### 调用合约
 
 Algorand 的智能合约有 stateful 和 stateless 两种类型，本教程使用的是 stateless 类型的智能合约。
+
 更多 stateless 相关的合约请查看：
+
 https://developer.algorand.org/docs/features/asc1/stateless
 
-
 #### Contract Account vs Delegated Approval
+
 Stateless Smart Contracts 使用 LogicSig 作为合约签名的方式。通常 Stateless Smart Contracts 有两种使用场景，分别为 Contract Account 和 Delegated Approval
 
 - Contract Account 合约作为交易中间方，交易方将资金存入合约，当交易双方达到交易条件时由合约本身进行转账
 - Delegated Approval 合约作为交易点方，仅负责检查交易，不负责资金流转
 
 更多 Contract Account 和 Delegated Approval 相关的信息请查看：
+
 https://developer.algorand.org/docs/features/asc1/stateless/modes
 
 #### 调用Dynamic Fee合约
@@ -191,4 +192,3 @@ https://developer.algorand.org/docs/features/asc1/stateless/modes
 交易完成后切换至区块浏览器并刷新 Alice, Bob 和 Charlie 页面，可以看到 Alice 的余额减少了 1 ALGO，Bob 减少了 0.002 ALGO（除了为 Alice 支付的转账费用外，还有自身的转账费用） 而 Charlie 增加了 1 ALGO。
 
 Alice 的交易记录中多了两条交易记录，分别为给 Charlie 的 1 ALGO 转账和收到 Bob 的 0.002 ALGO 转账。
-
