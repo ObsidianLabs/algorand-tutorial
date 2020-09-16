@@ -18,5 +18,5 @@ Algorand DApp 开发教程将使用 [Algorand Studio](https://github.com/Obsidia
 
 本开发教程使用两篇文章分别介绍两个合约的开发：
 
-1. [开发教程一](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-1-CN.md) 将简单介绍如何安装使用 Alogrand Studio，然后通过 DynamicFee 项目来展示 Alogrand 开发的完整流程。
-2. [开发教程二](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2-CN.md) 将通过 LimitOrder 例子来介绍 Algorand 的资产模型。教程会创建以 LimitOrder 为模版的项目，并将其编译，通过调用对应的交易来完成 ASA 完整的 lifecycle。
+1. [开发教程一](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-1.md) 将简单介绍如何安装使用 Alogrand Studio，然后通过 DynamicFee 项目来展示 Alogrand 开发的完整流程。
+2. [开发教程二](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2.md) 将通过 LimitOrder 例子来介绍 Algorand 的资产模型。教程会创建以 LimitOrder 为模版的项目，并将其编译，通过调用对应的交易来完成 ASA 完整的 lifecycle。
