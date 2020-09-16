@@ -8,15 +8,15 @@ English | [简体中文](https://github.com/ObsidianLabs/algorand-dapp-tutorial/
 
 ## Introduction
 
-Algorand DApp 开发教程将使用 [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) 在测试网络下开发 DynamicFee 合约及 LimitOrder 合约。
+In this tutorial, we will work with [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) to develop DynamicFee and LimitOrder contract under Algorand test network.
 
-通过这个开发教程，你将会学习到如何在 Algorand Studio 下进行 Algorand 智能合约的编写、调用。
+After working through this tutorial, you should have had a brief understanding on Algorand Smart Contract programming and execution with Algorand Studio.
 
-在阅读教程中遇到任何问题，欢迎在 [Github Issues](https://github.com/ObsidianLabs/AlgorandStudio/issues) 中向我们反馈。
+If you encounter any problems regarding this tutorial, feel free to report to us at [Github Issues](https://github.com/ObsidianLabs/AlgorandStudio/issues).
 
-## 目录
+## Table of Contents
 
-本开发教程使用两篇文章分别介绍两个合约的开发：
+This series of tutorials contains two separate articles explaining Algorand developement on DynamicFee and LimitOrder project, respectively.
 
-1. [开发教程一](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-1.md) 将简单介绍如何安装使用 Alogrand Studio，然后通过 DynamicFee 项目来展示 Alogrand 开发的完整流程。
-2. [开发教程二](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2.md) 将通过 LimitOrder 例子来介绍 Algorand 的资产模型。教程会创建以 LimitOrder 为模版的项目，并将其编译，通过调用对应的交易来完成 ASA 完整的 lifecycle。
+1. [Dev Tutorial 1](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-1.md) talks about some basics about Algorand Studio, then illustrates a full development cycle through DynamicFee project.
+2. [Dev Tutorial 2](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2.md) introduces Algorand asset model through a LimitOrder example. We also go through a full ASA lifecycle by creating, compiling and calling a LimitOrder project.
