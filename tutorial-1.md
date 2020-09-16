@@ -2,7 +2,7 @@
 
 ## Intro
 
-本篇为第一篇教程，将简单介绍如何安装使用 Alogrand Studio，然后通过 DynamicFee 项目来展示 Alogrand 开发的完整流程。
+This is the first article of our Algorand Development Tutorial series. We will introduces basics and preparation of Algorand Studio, then illustrate a complete Algorand development lifecycle with DynamicFee project.
 
 ## Preparation Work
 
