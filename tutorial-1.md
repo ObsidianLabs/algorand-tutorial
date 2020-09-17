@@ -192,3 +192,7 @@ Press the Tube button on the Toolkit bar, choose `8.contract_delegated.json` and
 Once it completes, move to block explorer and refresh Alice's , Bob's and Charlie's pages respectively. You shall see Alice's balance shrinked by 1 ALGO, Bob's have 0.002 ALGO less than before (Since it paid the fees both for Alice's transfer to Charlie as well as his to Alice), and Charlie, gets 1 more ALGO then before.
 
 Alice's transaction history will see two new records, that are outbound transfer of 1 ALGO to Charlie and 0.002 ALGO inbound transfer from Bob, repsectively.
+
+## Next
+
+Next we will talk about Algorand asset model through examples on LimitOrder in [Tutorial 2](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2.md)

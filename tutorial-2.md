@@ -2,7 +2,7 @@
 
 ## Intro
 
-In this tutorial, We will talk about Algorand asset model through examples on LimitOrder. You will have the chance to create a LimitOrder-based project, and go through a full ASA lifecycle by compiling and then calling transactions defined in the project.
+In this tutorial, we will talk about Algorand asset model through examples on LimitOrder. You will have the chance to create a LimitOrder-based project, and go through a full ASA lifecycle by compiling and then calling transactions defined in the project.
 
 ## Algorand Standard Asset (ASA)
 

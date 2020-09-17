@@ -192,3 +192,7 @@ https://developer.algorand.org/docs/features/asc1/stateless/modes
 交易完成后切换至区块浏览器并刷新 Alice, Bob 和 Charlie 页面，可以看到 Alice 的余额减少了 1 ALGO，Bob 减少了 0.002 ALGO（除了为 Alice 支付的转账费用外，还有自身的转账费用） 而 Charlie 增加了 1 ALGO。
 
 Alice 的交易记录中多了两条交易记录，分别为给 Charlie 的 1 ALGO 转账和收到 Bob 的 0.002 ALGO 转账。
+
+## 下一步
+
+接下来我们将在[教程二](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2-CN.md)中将通过 LimitOrder 例子来介绍 Algorand 的资产模型。
