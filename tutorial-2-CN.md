@@ -25,7 +25,7 @@ https://developer.algorand.org/docs/features/asa
 - Create: 创建 ASA
 - Opt in: 注册 ASA 的接收人
 - Transfer: 转账交易
-- Other: freeze, revoke, clawback, destory
+- 其他如: freeze, revoke, clawback, destory
 
 更多关于ASA的交易类型，参见：
 
@@ -41,9 +41,17 @@ https://developer.algorand.org/docs/reference/teal/templates/limit_ordera
 
 使用 Alogorand Studio 新建一个项目，选择 *Limit Order* 模版，填入项目名后点击 *Create Project* 按钮。
 
+<p align="center">
+  <img src="./screenshots/create_limit_order.png" width="720px">
+</p>
+
 项目包含了 `contract.teal` 和 `config.json` 文件以及一个 `tests` 目录。
 
-`contract.teal` 包含了 LimitOrder 合约的所有逻辑，使用 TEAL 语言进行编写。
+其中 `contract.teal` 包含了 LimitOrder 合约的所有逻辑，使用 TEAL 语言进行编写。
+
+<p align="center">
+  <img src="./screenshots/limit_order.png" width="300px">
+</p>
 
 打开 `tests` 目录，在这里面可以找到五个文件，它们的名称和作用分别为
 
@@ -64,6 +72,10 @@ https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-
 开始编译前，我们需要对代码进行一些修改。
 
 首先点击左下方的 *Keypair Manager*，将 Alice 的地址复制一下，然后打开 `contract.teal` 文件并且定位到第 38 行和第 72 行，将这两行的地址替换为刚刚复制的 Alice 地址。这样设置以后，合约只会允许 Alice 作为本合约唯一的支付 ALGO 的账户。
+
+<p align="center">
+  <img src="./screenshots/replace_address.png" width="720px">
+</p>
 
 点击工具栏的锤子按钮进行编译，编译完成后将会在项目目录下生成两个新的文件：`contract.teal.tok` 和 `contract.addr`。
 

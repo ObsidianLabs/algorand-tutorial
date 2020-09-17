@@ -39,11 +39,19 @@ https://developer.algorand.org/docs/reference/teal/templates/limit_ordera
 
 ### Create Project
 
-Create a new Project in Algorand Studio. Select *Limit Order* template, put in project name and click *Create* button.
+Create a new Project in Algorand Studio. Select *Limit Order* template, put in project name and click *Create Project* button.
+
+<p align="center">
+  <img src="./screenshots/create_limit_order.png" width="720px">
+</p>
 
 The project contains `contract.teal`, `config.json` file as well as a `tests` folder.
 
 `contract.teal` contains all logics to execute LimitOrder contract, which was written in TEAL.
+
+<p align="center">
+  <img src="./screenshots/limit_order.png" width="300px">
+</p>
 
 Navigate to `tests` folder, you shall find 5 files named as below.
 
@@ -64,6 +72,10 @@ https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-
 Before you compile the contract, we need you to modify a few lines in to contract code.
 
 First, click *Keypair Manager* icon on the bottom left corner, copy Alice's address. Then open `contract.teal` file, and navigate to Line 38 and Line 72, respectively. Overwrite both addresses with Alice's address as they specify Alice as the only recipient allowed in this contract.
+
+<p align="center">
+  <img src="./screenshots/replace_address.png" width="720px">
+</p>
 
 Click hammer button to start compilation. Upon completion, you will find two outputs, `contract.teal.tok` and `contract.addr` created under project folder.
 
