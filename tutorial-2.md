@@ -6,18 +6,19 @@ In this tutorial, We will talk about Algorand asset model through examples on Li
 
 ## Algorand Standard Asset (ASA)
 
-Algorand Standard Asset is an Algorand built-in Standard Asset model, including both fungible and non-fungible types of assets.
+Algorand Standard Asset is an Algorand built-in Standard Asset model, including both Fungible and Non-fungible types of assets.
 
 For full information, please refer to
+
 https://developer.algorand.org/docs/features/asa/
 
 ### Construct ASA transaction
 
-Open the Dynamic Fee project from Tutorial One, you may find 3 ASA-related files under tests folder.
+Open the Dynamic Fee project from Tutorial One, you may find 3 ASA-related files under `tests` folder.
 
-- 4.asset_create.json
-- 5.asset_transfer.json
-- 6.asset_destory.json
+- `4.asset_create.json`
+- `5.asset_transfer.json`
+- `6.asset_destory.json`
 
 A complete ASA transction usually contains theses elements in its lifecycle.
 
@@ -27,6 +28,7 @@ A complete ASA transction usually contains theses elements in its lifecycle.
 - Other: freeze, revoke, clawback, destroy
 
 For more ASA transaction classification, please refer to
+
 https://developer.algorand.org/docs/features/asa/#asset-functions
 
 ## ASC Example: LimitOrder
@@ -37,32 +39,33 @@ https://developer.algorand.org/docs/reference/teal/templates/limit_ordera
 
 ### Create Project
 
-Create a new Project in Algorand Studio. Select LimitOrder template, put in project name and click Create button.
+Create a new Project in Algorand Studio. Select *Limit Order* template, put in project name and click *Create* button.
 
-The project contains contract.teal, config.json file as well as a tests folder.
+The project contains `contract.teal`, `config.json` file as well as a `tests` folder.
 
-contract.teal contains all logics to execute LimitOrder contract, which was written in TEAL.
+`contract.teal` contains all logics to execute LimitOrder contract, which was written in TEAL.
 
-Navigate to tests folder, you shall find 5 files named as below.
+Navigate to `tests` folder, you shall find 5 files named as below.
 
-- 0.create_asset.json: Bob creates a new asset of 1000 units.
-- 1.opt_in.json: Registers Alice as Asset Recipient through Opt-in
-- 2.deposit.json: Alice deposits 10 ALGO into the contract
-- 3.exchange.json: Bob exchanges 10 unites of asset for 1 ALGO in the contract.
-- 4.close.json: Returns remaining ALGO to Alice.
+- `0.create_asset.json`: Bob creates a new asset of 1000 units.
+- `1.opt_in.json`: Registers Alice as Asset Recipient through Opt-in
+- `2.deposit.json`: Alice deposits 10 ALGO into the contract
+- `3.exchange.json`: Bob exchanges 10 unites of asset for 1 ALGO in the contract.
+- `4.close.json`: Returns remaining ALGO to Alice.
 
 ### Contract Code
 
 Full Overview of code can be found below
+
 https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-overview
 
 ### Compile Contract
 
 Before you compile the contract, we need you to modify a few lines in to contract code.
 
-First, click Keypair Manager icon on the bottom left corner, copy Alice's address. Then open contract.teal file, and navigate to Line 38 and Line 72, respectively. Overwrite both addresses with Alice's address as they specify Alice as the only recipient allowed in this contract.
+First, click *Keypair Manager* icon on the bottom left corner, copy Alice's address. Then open `contract.teal` file, and navigate to Line 38 and Line 72, respectively. Overwrite both addresses with Alice's address as they specify Alice as the only recipient allowed in this contract.
 
-Click hammer button to start compilation. Upon completion, you will find two outputs, contract.teal.tok and contract.addr created under project folder.
+Click hammer button to start compilation. Upon completion, you will find two outputs, `contract.teal.tok` and `contract.addr` created under project folder.
 
 ### Call LimitOrder Contract
 
@@ -72,8 +75,8 @@ In this tutorial, we're showcasing a lifecycle in the following steps, Bob creat
 
 Following achieves a full LimitOrder call lifecycle through multiple step-by-step json file call.
 
-1. Create a new asset named My Token for Bob. Inititate 1000 units and takes MT as its symbol. Click Tube button on the toolkit bar, select 0.create_asset.json and click Run Test Transaction button. You shall see 1000 MT created in Bob's asset through Explorer once the transaction completes.
-2. Alice adds Bob into its whilelist. Click Tube button on the toolkit bar, select 1.opt_in.json and click Run Test Transaction button, then you shall see 0 MT asset added into Alice's asset through the Explorer.
-3. Alice deposits 10 ALGO for exchange transaction with asset. Click Tube button on the toolkit bar, select 2.deposit.json and click Run Test Transaction button, then you shall see 10 ALGO deducted from Alice's.
-4. Bob exchanges 10 asset for Alice's 1 ALGO. Click Tube button on the toolkit bar, select 3.exchange.json and click Run Test Transaction button, then you shall see 10 MT deducted while 1 ALGO added in Bob's account.
-5. Alice withdrawed 9 remaining ALGO from the contract. Click Tube button on the toolkit bar, select 4.close.json and click Run Test Transaction button, then you shall see 9 ALGO added on Alice's balance.
+1. Create a new asset named My Token for Bob. Inititate 1000 units and takes MT as its symbol. Click Tube button on the toolkit bar, select `0.create_asset.json` and click *Run Test Transaction* button. You shall see 1000 MT created in Bob's asset through Explorer once the transaction completes.
+2. Alice adds Bob into its whilelist. Click Tube button on the toolkit bar, select `1.opt_in.json` and click *Run Test Transaction* button, then you shall see 0 MT asset added into Alice's asset through the Explorer.
+3. Alice deposits 10 ALGO for exchange transaction with asset. Click Tube button on the toolkit bar, select `2.deposit.json` and click *Run Test Transaction* button, then you shall see 10 ALGO deducted from Alice's.
+4. Bob exchanges 10 asset for Alice's 1 ALGO. Click Tube button on the toolkit bar, select `3.exchange.json` and click *Run Test Transaction* button, then you shall see 10 MT deducted while 1 ALGO added in Bob's account.
+5. Alice withdrawed 9 remaining ALGO from the contract. Click Tube button on the toolkit bar, select `4.close.json` and click *Run Test Transaction* button, then you shall see 9 ALGO added on Alice's balance.
