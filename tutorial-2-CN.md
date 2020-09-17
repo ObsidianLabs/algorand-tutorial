@@ -10,7 +10,7 @@ Algorand Standard Asset 是 Algorand 内置的标准资产模型，包含了 Fun
 
 详细说明请参考：
 
-https://developer.algorand.org/docs/features/asa/
+https://developer.algorand.org/docs/features/asa
 
 ### 构造 ASA 交易
 

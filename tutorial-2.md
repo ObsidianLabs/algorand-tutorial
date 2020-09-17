@@ -10,7 +10,7 @@ Algorand Standard Asset is an Algorand built-in Standard Asset model, including 
 
 For full information, please refer to
 
-https://developer.algorand.org/docs/features/asa/
+https://developer.algorand.org/docs/features/asa
 
 ### Construct ASA transaction
 

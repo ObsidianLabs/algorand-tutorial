@@ -82,7 +82,7 @@ Refresh the page after transaction completes, you'll see Alice's balance updated
 
 TEAL is a native ASC stack language developed by Algorand Foundation. It's similar to Assembly language in some sense. You may find full description of the language in its official documentation below.
 
-https://developer.algorand.org/docs/reference/teal/specification/
+https://developer.algorand.org/docs/reference/teal/specification
 
 ### Create New Project (from Dynamic Fee template)
 
@@ -96,7 +96,7 @@ Switch to *Project* label from the top, click *New* button and put in project na
 
 Since TEAL is not a programmer-friendly language, Algorand developed PyTeal which allows developers to write Algorand smart contract with Python syntax. PyTeal serves to inteprete these code to Teal then further compiles it to binary. You may find more information below if you're interested.
 
-https://developer.algorand.org/docs/features/asc1/teal/pyteal/
+https://developer.algorand.org/docs/features/asc1/teal/pyteal
 
 ### Compile Smart Contract
 
@@ -120,7 +120,7 @@ Dynamic Fee contract allows third-party payment for transaction fee. The fee in 
 
 Full reference documentation on contract code can be found below.
 
-https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee/
+https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee
 
 ## Construct Transaction & Call Contract
 

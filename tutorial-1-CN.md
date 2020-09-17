@@ -82,7 +82,7 @@ Algorand Studio 在创建 Algorand Node 实例的时候会帮助用户自动下�
 
 TEAL是原生写 Algorand 智能合约语言，它是一种类似 Assembly 的语言，由 Algorand 官方开发。
 
-https://developer.algorand.org/docs/reference/teal/specification/
+https://developer.algorand.org/docs/reference/teal/specification
 
 ### 创建项目（模板DynamicFee）
 
@@ -96,7 +96,7 @@ https://developer.algorand.org/docs/reference/teal/specification/
 
 使用 TEAL 编写代码并不方便，为此 Alogrand 开发了 PyTeal。Pyteal 是通过 Python 语法来编写代码，然后通过 Pyteal 编译器编译成 teal，然后编译成二进制。
 
-https://developer.algorand.org/docs/features/asc1/teal/pyteal/
+https://developer.algorand.org/docs/features/asc1/teal/pyteal
 
 ### 编译合约
 
@@ -120,7 +120,7 @@ Dynamic fee 合约实现了一个代付交易费的功能。上文中的转账�
 
 合约代码具体解析参见：
 
-https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee/
+https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee
 
 ## 构造交易 & 调用合约
 
