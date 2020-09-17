@@ -150,15 +150,15 @@ Alogrand Studio 通过 json 文件来定义交易。
 
 交易完成后切换至区块浏览器并刷新 Alice 页面，可以看到余额减少了 10 个多一点的 ALGO，下方的交易记录中也多出了刚刚的那笔转账记录。
 
-#### atomic transfer
+#### Atomic transfer
 
-atomic transfer 保证多笔交易同时成功和同时失败。
+Atomic transfer 保证多笔交易同时成功和同时失败。
 
 https://developer.algorand.org/docs/features/atomic_transfers
 
-#### multisig
+#### Multisig
 
-multisig 支持多个账户给这笔交易签名。
+Multisig 支持多个账户给这笔交易签名。
 
 https://developer.algorand.org/docs/features/accounts/create/#multisignature
 

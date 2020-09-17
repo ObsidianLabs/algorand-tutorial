@@ -150,15 +150,15 @@ Click the tube button, choose `1.pay.json` in the popup window. Then click *Run 
 
 Then switch to Block Explorer and refresh Alice's page, we will see 10+ ALGO was deducted and a new transaction record showed up in the bottom part where shows all transaction history.
 
-#### atomic transfer
+#### Atomic transfer
 
 Atomic Transfer makes sure multiple transactions either all succeed or all fail.
 
 https://developer.algorand.org/docs/features/atomic_transfers
 
-#### multisig
+#### Multisig
 
-multisig allows a transaction signed by a ordered set of addresses.
+Multisig allows a transaction signed by a ordered set of addresses.
 
 https://developer.algorand.org/docs/features/accounts/create/#multisignature
 
