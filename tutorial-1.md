@@ -46,11 +46,13 @@ In this tutorial, you need to create three keypairs with names *Alice*, *Bob* an
 
 ### Using the Explorer
 
-Click the *Account* button in the header to open the *Account Explorer* and paste Alice's address in the address input. You should see its ALGO balance on the left and every transactions on the bottom relating to the specified address.
+Click the *Account* button in the header to open the *Account Explorer* and paste Alice's address in the address input. You should see Alice's ALGO balance on the left and every transactions on the bottom relating to the her address.
 
 <p align="center">
   <img src="./screenshots/explorer.png" width="720px">
 </p>
+
+Different from the screenshot, you may see an empty transaction list since you just created the account. Keep going in this tutorial and you will find how the two transactions come up.
 
 ### Claim test tokens using the faucet
 
