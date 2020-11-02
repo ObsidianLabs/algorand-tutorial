@@ -4,19 +4,20 @@
   <img src="./screenshots/main.png" width="720px">
 </p>
 
-English | [简体中文](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/README-CN.md)
+English | [简体中文](README-CN.md)
 
 ## Introduction
 
-In this tutorial, we will work with [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) to develop DynamicFee and LimitOrder contract under Algorand test network.
+In this tutorial, we will work with [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) to develop Dynamic Fee and Limit Order contracts under Algorand test network.
 
-After working through this tutorial, you should have had a brief understanding on Algorand Smart Contract programming and execution with Algorand Studio.
+After working through this tutorial, you should have had a brief understanding of Algorand Smart Contract development and using Algorand Studio.
 
-If you encounter any problem regarding this tutorial, feel free to report to us at [Github Issues](https://github.com/ObsidianLabs/AlgorandStudio/issues).
+If you encounter any problem regarding this tutorial, feel free to report to us at [Github Issues](issues).
 
 ## Table of Contents
 
-This series of tutorial contains two separate articles showcasing Algorand developement on DynamicFee and LimitOrder project, respectively.
+This series of tutorial contains three separate articles showcasing Algorand developement on Dynamic Fee and Limit Order smart contracts.
 
-1. [Tutorial 1](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-1.md) talks about some basics about Algorand Studio, then illustrates a full development cycle through DynamicFee project.
-2. [Tutorial 2](https://github.com/ObsidianLabs/algorand-dapp-tutorial/blob/master/tutorial-2.md) introduces Algorand asset model through a LimitOrder example. We also go through a full ASA lifecycle by creating, compiling and calling a LimitOrder project.
+1. [Tutorial 1](tutorial-1.md) talks about the setup and basic operations of Algorand Studio;
+1. [Tutorial 2](tutorial-2.md) illustrates a full development cycle through Dynamic Fee smart contract;
+2. [Tutorial 3](tutorial-3.md) introduces Algorand asset model through a LimitOrder example. We also go through a full ASA lifecycle by creating, compiling and calling a Limit Order smart contract.
