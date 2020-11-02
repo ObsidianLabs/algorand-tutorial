@@ -1,4 +1,4 @@
-# Tutorial for Algorand Studio DApp Development
+# Algorand Studio Tutorials
 
 <p align="center">
   <img src="./screenshots/main.png" width="720px">
