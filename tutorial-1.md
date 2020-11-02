@@ -16,7 +16,7 @@ This is the first article of our Algorand Studio Tutorial series. We will introd
 
 You may download the latest build of Algorand Studio from the [Github repo](https://github.com/ObsidianLabs/AlgorandStudio). Algorand Studio currently supports macOS and Linux operating systems while we're working hard to extend it to other platforms.
 
-Download, install and run Algorand Studio on your device. If everything works as it should be, you will be brought to a welcome screen where you shall see a checklist of prerequisites for Algorand Studio. It requires Docker runtime, Algorand Node and PyTeal Compiler to properly function. Click the button at the end of each line to complete installations as per instruction.
+Download, install and run Algorand Studio on your device. If everything works as it should be, you will be brought to a welcome screen where you shall see a checklist of prerequisites for Algorand Studio. It requires Docker runtime, Algorand Node and PyTeal Compiler to properly function. Click the button at the end of each line to complete the installation as per instruction.
 
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
@@ -26,7 +26,7 @@ When all the three tools are installed, click the *Get Started* button and enter
 
 ### Start Algorand node and connect to the testnet
 
-Click the *Network* button in the header and switch to the network manager. Then click the *New Instance* button in the upper right corner to create a new Algorand node instance. Algorand Studio will automatically download the latest snapshot to save time of synchronizing data with the network. 
+Click the *Network* button in the header and switch to the network manager. Then click the *New Instance* button in the upper right corner to create a new Algorand node instance. Algorand Studio will automatically download the latest snapshot to save time for synchronizing data with the network. 
 
 <p align="center">
   <img src="./screenshots/create_node.png" width="720px">
@@ -62,7 +62,7 @@ Different from the screenshot, you may see an empty transaction list since you j
 
 ### Claim test tokens using the faucet
 
-In the world of blockchain, people usually refer the tool for claiming test tokens as *faucet*. Click the faucet button next to the address input and a window for *Algorand Dispenser* will pop up. Enter Alice's address and wait some time for the network to process the transaction. Later, you will see her balance go up by 100 ALGO where a new transfer transaction is recorded in the transaction list.
+In the world of blockchain, people usually refer the tool for claiming test tokens as *faucet*. Click the faucet button next to the address input and the window for *Algorand Dispenser* will pop up. Enter Alice's address and wait some time for the network to process the transaction. Later, you will see her balance goes up by 100 ALGO where a new transfer transaction is recorded in the transaction list.
 
 <p align="center">
   <img src="./screenshots/faucet.png" width="720px">
@@ -112,13 +112,15 @@ Then switch to the *Explorer* and refresh Alice and Bob's pages, we will see the
 
 ### Atomic transfer
 
-Atomic transfer makes sure multiple operations either all succeed or all fail. Open `2.atomic_transfer.json` to see an example. The whole transaction object consists a `txns` array field where you can give multiple transaction parts. Different parts can have diverse transaction types, contents, and signers. In the example given we constructed an atomic transfer that made sure Alice send Bob 1 ALGO at the same time Bob send Charlie 1 ALGO. This structure is crucial when we contruct a transaction to use the Dynamic Fee smart contract.
+Atomic transfer makes sure multiple operations either all succeed or all fail. Open `2.atomic_transfer.json` to see an example. The whole transaction object consists a `txns` array field where you can give multiple transaction parts. Different parts can have diverse transaction types, contents, and signers. In the example given we constructed an atomic transfer that made sure Alice sends Bob 1 ALGO at the same time Bob sends Charlie 1 ALGO. This structure is crucial when we contruct a transaction to use the Dynamic Fee smart contract.
 
 For more information about atomic transfer, please refer the [official docs](https://developer.algorand.org/docs/features/atomic_transfers).
 
 ### Multisig
 
 You can also construct multisig transactions in Algorand Studio. See `3.multisig.json` for example and refer to the [docs](https://developer.algorand.org/docs/features/accounts/create/#multisignature) for more information.
+
+### Others
 
 Algorand Studio will use the same structure to construct transactions for smart contracts. We will talk about this in the [next tutorial](tutorial-2.md). There are also other types of transactions which we left for the [third tutorial](tutorial-3.md).
 
