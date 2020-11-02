@@ -1,94 +1,65 @@
-# Tutorial Two
+# [Algorand Studio Tutorial 2] Smart Contract Dynamic Fee 
 
-## Intro
+We are now ready to talk about how to use Algorand Studio for ASC development. A general workflow for the development process includes
 
-In this tutorial, we will talk about Algorand asset model through examples on LimitOrder. You will have the chance to create a LimitOrder-based project, and go through a full ASA lifecycle by compiling and then calling transactions defined in the project.
+- Creating a project
+- Coding
+- Compilation
+- Construct transaction(s) that execute(s) the smart contract
+- Execution
 
-## Algorand Standard Asset (ASA)
+## Algorand Smart Contract (ASC)
 
-Algorand Standard Asset is an Algorand built-in Standard Asset model, including both Fungible and Non-fungible types of assets.
+### New project from template (Dynamic Fee)
 
-For full information, please refer to
-
-https://developer.algorand.org/docs/features/asa
-
-### Construct ASA transaction
-
-Open the Dynamic Fee project from Tutorial One, you may find 3 ASA-related files under `tests` folder.
-
-- `4.asset_create.json`
-- `5.asset_transfer.json`
-- `6.asset_destory.json`
-
-A complete ASA transction usually contains theses elements in its lifecycle.
-
-- Create: Create ASA
-- Opt in: Register ASA recipients
-- Transfer: the Transfer Transaction
-- Other: freeze, revoke, clawback, destroy
-
-For more ASA transaction classification, please refer to
-
-https://developer.algorand.org/docs/features/asa/#asset-functions
-
-## ASC Example: LimitOrder
-
-LimitOrder is a ASA and ALGO transaction contract, which guarantees exchange between asset and ALGO by setting a specified exchange rate.
-
-https://developer.algorand.org/docs/reference/teal/templates/limit_ordera
-
-### Create Project
-
-Create a new Project in Algorand Studio. Select *Limit Order* template, put in project name and click *Create Project* button.
+Switch to *Project* in the header to open the project list page. Click the *New* button, put in a project name and select a template you wish to use for the new project. Let's pick *Dynamic Fee* now. Then press *Create Project* to complete this process.
 
 <p align="center">
-  <img src="./screenshots/create_limit_order.png" width="720px">
+  <img src="./screenshots/create_project.png" width="720px">
 </p>
 
-The project contains `contract.teal`, `config.json` file as well as a `tests` folder.
+The Dynamic Fee smart contract allows third-party payment for the transaction fee. The fee in the earlier transfer transaction was paid by Alice. Using the Dynamic Fee contract you can specifiy an external account for paying the fee. The reference for the code walkthrough can be found [here](https://developer.algorand.org/docs/reference/teal/templates/dynamic_fee).
 
-`contract.teal` contains all logics to execute LimitOrder contract, which was written in TEAL.
+### TEAL vs PyTeal
+
+Algorand currently provides two programming language for ASC development - TEAL and PyTeal. TEAL (Transaction Execution Approval Language) is the native language for ASC. You may find full description of the language in the [docs](https://developer.algorand.org/docs/reference/teal/specification). TEAL is a low-level assemply-like language, so Algorand also developed PyTeal which allows developers to write Algorand smart contract using Python syntax. PyTeal serves to inteprete Python codes to TEAL for later compilation to binaries. You may find more information about PyTeal also in the [docs](https://developer.algorand.org/docs/features/asc1/teal/pyteal).
+
+
+### Stateful vs stateless
+
+There are two types of smart contracts in Algorand - stateful and stateless. We will mainly talk about stateless contracts in this tutorial. For more info, please refer to the [docs](https://developer.algorand.org/docs/features/asc1/).
+
+### Compilation
+
+Before you compile the Dynamic Fee project, we need to modify a line in the `main.py` file. Put in Charlie's address on Line 5.
+
+You may notice there're two hammer buttons at the bottom of the editor window. They represent PyTeal compiler and TEAL compiler. Algorand Studio utilizes both to compile our smart contract. You should already installed both compilers in the Welcome screen. Otherwise, click the buttons and open their version managers to finish the installation.
 
 <p align="center">
-  <img src="./screenshots/limit_order.png" width="300px">
+  <img src="./screenshots/main.png" width="720px">
 </p>
 
-Navigate to `tests` folder, you shall find 5 files named as below.
+Press the hammer button in the toolbar (at the top of the file tree) to initiate the compilation process. PyTeal compiler will interpret and convert the `.py` file to `.teal` format. TEAL compiler will further compile it into a `.tok` binary and a `.addr` file that contains the address of the contract. In Algorand it doesn't require deployment right after compilation. You can directly deposit tokens to the smart contract using the address in the `.addr` file as the recipient. The `.tok` binary is only needed when you want to execute the contract program, for example in a withdrawal transaction.
 
-- `0.create_asset.json`: Bob creates a new asset of 1000 units.
-- `1.opt_in.json`: Registers Alice as Asset Recipient through Opt-in
-- `2.deposit.json`: Alice deposits 10 ALGO into the contract
-- `3.exchange.json`: Bob exchanges 10 unites of asset for 1 ALGO in the contract.
-- `4.close.json`: Returns remaining ALGO to Alice.
+### Modes of use
 
-### Contract Code
+Stateless smart contracts are commonly used in [two scenarios](https://developer.algorand.org/docs/features/asc1/stateless/modes/):
 
-Full Overview of code can be found below
+- Contract Account: the smart contract is directly involved in the transaction, or specifically, it will be the sender since recipients don't need to do anything;
+- Delegated Approval: the smart contract will act as a third-party to verify transactions between other accounts.
 
-https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/#code-overview
+Since in the case of Dynamic Fee, the smart contract will only verify the transactions between other accounts - the sender, the recipient and a third one that is going to pay the fee for the sender - we are using the *delegated approval* here.
 
-### Compile Contract
+### Call the Dynamic Fee contract
 
-Before you compile the contract, we need you to modify a few lines in to contract code.
+Open `8.contract_delegrated.json` which contains an example. The first transaction is a transfer of 0.001 ALGO from Bob (fee payer) to Alice (sender), and the second one is a transfer of 1 ALGO from Alice to Charlie (receiver). Be aware that the sample code has prescribed the sender has to send *1 ALGO* to *Charlie* as the receiver and the fee payer has to send *the same amount of ALGO as the fee* to the *sender* (by default this is 0.001 ALGO). If we logically combine two transactions into one, it could be intepreted as a transfer transaction of 1 ALGO from Alice to Charlie while Bob pays for the transaction fee of 0.001 ALGO and Alice doesn't pay a fee as a consequence.
 
-First, click *Keypair Manager* icon on the bottom left corner, copy Alice's address. Then open `contract.teal` file, and navigate to Line 38 and Line 72, respectively. Overwrite both addresses with Alice's address as they specify Alice as the only recipient allowed in this contract.
+You may find the second transaction is not signed by Alice. In fact, no `signers` is given here. However, we have provided the `lsig` which stands for [logic signature](https://developer.algorand.org/docs/features/asc1/stateless/modes/#logic-signatures), the method asking a smart contract to verify the transaction. In this example it contains the raw data of the smart contract code (remember we said before the code is only needed when the smart contract is going to be executed), and Alice's signature to make sure she agrees to withdraw from her account.
 
-<p align="center">
-  <img src="./screenshots/replace_address.png" width="720px">
-</p>
+Press the test-tube button in the toolbar, choose `8.contract_delegated.json` and click *Run Test Transaction* button. Then wait for a while allowing transaction to complete. Once it completes, move to the explorer and refresh Alice's, Bob's and Charlie's pages respectively. You shall see Alice's balance decreased by 1 ALGO, Bob's decreased by 0.002 ALGO (since he paid fees for both Alice's transfer to Charlie as well as his to Alice), and Charlie's increased by 1 ALGO. In Alice's transaction history you will also see the consequence with one outbound transfer of 1 ALGO to Charlie and 0.001 ALGO inbound transfer from Bob.
 
-Click hammer button to start compilation. Upon completion, you will find two outputs, `contract.teal.tok` and `contract.addr` created under project folder.
+You can generate the same group of transactions using atomic transfer mentioned above and have Alice and Bob signing their transactions respectively, but it doesn't gurantee that the combination will act as planned because someone may cheat in the process. For example, the fee payer may pay less than the fee being charged, or the sender doesn't make a transfer to the receiver at all. In the blockchain world, we should act in a *trustless* way - we should not trust any other prople in the system. The Dynamic Fee smart contract can make sure everything goes as planed by codes so no one can manipulate it. That's why we need to use a smart contract to very such transactions.
 
-### Call LimitOrder Contract
+## Next
 
-Once compilation completes, you shall start to make use of LimitOrder contract.
-
-In this tutorial, we're showcasing a lifecycle in the following steps, Bob created a new asset, and exchange this new asset for ALGO at a specified rate from Alice.
-
-Following achieves a full LimitOrder call lifecycle through multiple step-by-step json file call.
-
-1. Create a new asset named My Token for Bob. Inititate 1000 units and takes MT as its symbol. Click Tube button on the toolkit bar, select `0.create_asset.json` and click *Run Test Transaction* button. You shall see 1000 MT created in Bob's asset through Explorer once the transaction completes.
-2. Alice adds Bob into its whilelist. Click Tube button on the toolkit bar, select `1.opt_in.json` and click *Run Test Transaction* button, then you shall see 0 MT asset added into Alice's asset through the Explorer.
-3. Alice deposits 10 ALGO for exchange transaction with asset. Click Tube button on the toolkit bar, select `2.deposit.json` and click *Run Test Transaction* button, then you shall see 10 ALGO deducted from Alice's.
-4. Bob exchanges 10 asset for Alice's 1 ALGO. Click Tube button on the toolkit bar, select `3.exchange.json` and click *Run Test Transaction* button, then you shall see 10 MT deducted while 1 ALGO added in Bob's account.
-5. Alice withdrawed 9 remaining ALGO from the contract. Click Tube button on the toolkit bar, select `4.close.json` and click *Run Test Transaction* button, then you shall see 9 ALGO added on Alice's balance.
+In the [next tutorial](/tutorial-3.md), we will talk about the Algorand Standard Asset (ASA) model through a more sophisticated smart contract [LimitOrder](https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/).
