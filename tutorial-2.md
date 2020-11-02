@@ -30,6 +30,10 @@ Algorand currently provides two programming language for ASC development - TEAL 
 
 The Dynamic Fee example is written in PyTeal. Algorand Studio will use the configuration file `config.json` to store the programming language used in the project. The project template will provide this config file automatically (which also sets the compiler) so you usually don't need to worry about it.
 
+<p align="center">
+  <img src="./screenshots/config_file.png" width="720px">
+</p>
+
 ### Modes of use
 
 Stateless smart contracts are commonly used in [two scenarios](https://developer.algorand.org/docs/features/asc1/stateless/modes/):
@@ -42,6 +46,10 @@ In the case of Dynamic Fee, the smart contract will only verify transactions bet
 ### Example transaction
 
 Open `8.contract_delegrated.json` which contains an example to execute the smart contract. In the transaction array, the first item is a transfer of 0.001 ALGO from Bob (fee payer) to Alice (sender), and the second one is a transfer of 1 ALGO from Alice to Charlie (receiver).
+
+<p align="center">
+  <img src="./screenshots/contract_delegrated_file.png" width="720px">
+</p>
 
 You may find the second transaction is not signed by Alice. In fact, no `signers` is given here. However, we have provided the `lsig` which stands for [logic signature](https://developer.algorand.org/docs/features/asc1/stateless/modes/#logic-signatures), the method asking a smart contract to verify the transaction. In this example it contains the raw data of the smart contract code, and Alice's signature to make sure she agrees to withdraw from her account.
 
@@ -83,6 +91,10 @@ Press the hammer button in the toolbar (at the top of the file tree) to initiate
 ### Execution
 
 Press the test-tube button in the toolbar, choose `8.contract_delegated.json` and click *Run Test Transaction* button. Then wait for a while allowing transaction to complete. Once it completes, move to the explorer and refresh Alice's, Bob's and Charlie's pages respectively. You shall see Alice's balance decreased by 1 ALGO, Bob's decreased by 0.002 ALGO (since he paid fees for both Alice's transfer to Charlie as well as his to Alice), and Charlie's increased by 1 ALGO. In Alice's transaction history you will also see the consequence with one outbound transfer of 1 ALGO to Charlie and 0.001 ALGO inbound transfer from Bob.
+
+<p align="center">
+  <img src="./screenshots/execute_contract_delegated.png" width="720px">
+</p>
 
 ## Next
 
