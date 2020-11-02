@@ -22,7 +22,7 @@ Download, install and run Algorand Studio on your device. If everything works as
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-When all the three tools are installed, click the *Get Strated* button and enter Algorand Studio.
+When all the three tools are installed, click the *Get Started* button and enter Algorand Studio.
 
 ### Start Algorand node and connect to the testnet
 
@@ -36,7 +36,7 @@ When the snapshot is fully downloaded, an Algorand node instance will show up in
 
 ### Create Algorand keypairs
 
-We also need to create some keypairs for the following tasks such as making transfers and execute the smart contract.
+We also need to create some keypairs for the following tasks such as making transfers and execute a smart contract.
 
 Click the key icon on the bottom left corner of Algorand Studio to open the *Keypair Manager*, then click *Create* button. A popup window will guide you through the process. Put in the name of the keypair, click the *Save* button and you will see the new address you just created.
 
@@ -46,13 +46,13 @@ A keypair is composed of a public key and a private key. Private keys in Algoran
   <img src="./screenshots/keypair_manager.png" width="720px">
 </p>
 
-In this tutorial, you need to create three keypairs with names *Alice*, *Bob* and *Charlie*. We will use their names to reference the three keypairs in this tutorial.
+In this tutorial series, you need to create three keypairs with names *Alice*, *Bob* and *Charlie*. We will use their names to reference the three keypairs in this and also the following tutorials.
 
 ## Basic Operations
 
 ### Using the Explorer
 
-Click the *Account* button in the header to open the *Account Explorer* and paste Alice's address in the address input. You should see Alice's ALGO balance on the left and every transactions on the bottom relating to the her address.
+Click the *Account* button in the header to open the *Account Explorer* and paste Alice's address in the address input. You should see Alice's ALGO balance on the left and every transactions on the bottom relating to her address.
 
 <p align="center">
   <img src="./screenshots/explorer.png" width="720px">
@@ -62,7 +62,7 @@ Different from the screenshot, you may see an empty transaction list since you j
 
 ### Claim test tokens using the faucet
 
-In the world of blockchain, people usually refer the tool for claiming test tokens as *faucet*. Click the faucet button next to the address input, a window for *Algorand Dispenser* will pop up. Enter Alice's address and wait some time for the network to process the transaction. Later, you will see her balance go up by 100 ALGO where a new transfer transaction is recorded in the transaction list.
+In the world of blockchain, people usually refer the tool for claiming test tokens as *faucet*. Click the faucet button next to the address input and a window for *Algorand Dispenser* will pop up. Enter Alice's address and wait some time for the network to process the transaction. Later, you will see her balance go up by 100 ALGO where a new transfer transaction is recorded in the transaction list.
 
 <p align="center">
   <img src="./screenshots/faucet.png" width="720px">
@@ -72,19 +72,27 @@ In the world of blockchain, people usually refer the tool for claiming test toke
 
 To start a transfer, open a new tab and type in Bob's address into the address input. Press ENTER and you'll see Bob's current account balance which is 0 ALGO.
 
-Switch back to Alice's tab and press the *Transfer* button next to the address input. Type in 20 as the amount to transfer and the recipient's address, which in our case the address of Bob. Click *Sign and Send* to initiate the transaction.
+Switch back to Alice's tab and press the *Transfer* button next to the address input. Type in 20 as the amount to transfer and the recipient's address, which in our case the address of Bob. Click *Sign and Push* to initiate the transaction.
 
 <p align="center">
   <img src="./screenshots/transfer.png" width="720px">
 </p>
 
-Refresh both Alice and Bob's pages after transaction completes and you will see their balances updated to around 80 ALGO for Alice and 20 ALGO for Bob. The discrepency of Alice's amount is the transaction fee deducted from her account as she is the sender of the transaction.
+Refresh both Alice and Bob's pages after transaction completes and you will see their balances updated to around 80 ALGO for Alice and 20 ALGO for Bob. The discrepency for Alice is because the transaction fee was deducted from her account as she is the sender of the transaction.
 
 ## Construct Algorand Transactions
 
-Before going further, let's talk about how to contruct a general transaction in Algorand Studio.
+Before going further, let's talk about how to contruct a general transaction. Algorand Studio defines transactions through JSON files. To use this feature we need to first create a project.
 
-Algorand Studio defines transactions through JSON files. You may find some examples in the `test` folder under the project, each reflecting a specific type of transaction.
+### New project from template
+
+Switch to *Project* in the header to open the project list page. Click the *New* button, put in a project name and select a template you wish to use for the new project. Let's pick *Dynamic Fee* here. Then press *Create Project* to complete this process.
+
+<p align="center">
+  <img src="./screenshots/create_project.png" width="720px">
+</p>
+
+Algorand Studio will automatically open the newly created prroject. We will talk about the project structure in the next tutorial. Here let's focus on the `test` folder where we can find some example transactions, each reflecting a specific type.
 
 <p align="center">
   <img src="./screenshots/tests.png" width="300px">
