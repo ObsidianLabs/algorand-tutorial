@@ -1,4 +1,4 @@
-# [Algorand Studio Tutorial 2] Smart Contract Dynamic Fee 
+# [Algorand Studio Tutorial 2] Smart Contract Dynamic Fee
 
 We are now ready to talk about how to use Algorand Studio for ASC development. A general workflow for the development process includes
 
