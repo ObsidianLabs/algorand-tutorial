@@ -34,7 +34,7 @@ The Dynamic Fee example is written in PyTeal. Algorand Studio will use the confi
 
 Before compiling the Dynamic Fee project, we need to modify a line in the `main.py` file. Put in Charlie's address on Line 5.
 
-You may notice there're two hammer buttons at the bottom of the editor window. They represent PyTeal compiler and TEAL compiler. Algorand Studio utilizes both to compile our PyTeal smart contract. You should already installed both compilers in the Welcome screen. Otherwise, click the buttons and open their version managers to finish the installation.
+You may notice there're two hammer buttons at the bottom of the editor window. They represent the PyTeal compiler and the TEAL compiler. Algorand Studio utilizes both to compile the Dynamic Fee smart contract. You should already installed both compilers in the Welcome screen. Otherwise, click the buttons and open their version managers to finish the installation.
 
 <p align="center">
   <img src="./screenshots/main.png" width="720px">
@@ -51,13 +51,15 @@ Stateless smart contracts are commonly used in [two scenarios](https://developer
 
 In the case of Dynamic Fee, the smart contract will only verify transactions between other accounts - the sender, the recipient and a third one that is going to pay the fee for the sender. Therefore, we are using the *delegated approval* mode here.
 
-### Sample transaction
+### Example transaction
 
-Open `8.contract_delegrated.json` which contains an example. In the transaction array, the first item is a transfer of 0.001 ALGO from Bob (fee payer) to Alice (sender), and the second one is a transfer of 1 ALGO from Alice to Charlie (receiver). We will explain the smart contract codes based on this sample transaction.
+Open `8.contract_delegrated.json` which contains an example to execute the smart contract. In the transaction array, the first item is a transfer of 0.001 ALGO from Bob (fee payer) to Alice (sender), and the second one is a transfer of 1 ALGO from Alice to Charlie (receiver).
 
-### Explanation of the smart contract
+You may find the second transaction is not signed by Alice. In fact, no `signers` is given here. However, we have provided the `lsig` which stands for [logic signature](https://developer.algorand.org/docs/features/asc1/stateless/modes/#logic-signatures), the method asking a smart contract to verify the transaction. In this example it contains the raw data of the smart contract code (remember we said before the code is only needed when the smart contract is going to be executed), and Alice's signature to make sure she agrees to withdraw from her account.
 
-In essense, the smart contract has prescribed a list of logic checks
+### Contract code
+
+With an example transaction, it's easier to understand what the smart contract does. Let's now look at the PyTeal file `main.py`. In essense, the smart contract has prescribed a list of logic checks. 
 
 ``` py
 dynamic_fee_core = And(
@@ -76,13 +78,11 @@ dynamic_fee_core = And(
 
 With the parameters given in the contract file, the sender has to send *1 ALGO* to *Charlie* as the receiver and the fee payer has to send *the same amount of ALGO as the fee* to the *sender* (by default this is 0.001 ALGO). If we logically combine two transactions into one, it could be intepreted as a transfer transaction of 1 ALGO from Alice to Charlie while Bob pays for the transaction fee of 0.001 ALGO and Alice doesn't pay a fee as a consequence.
 
-You may find the second transaction is not signed by Alice. In fact, no `signers` is given here. However, we have provided the `lsig` which stands for [logic signature](https://developer.algorand.org/docs/features/asc1/stateless/modes/#logic-signatures), the method asking a smart contract to verify the transaction. In this example it contains the raw data of the smart contract code (remember we said before the code is only needed when the smart contract is going to be executed), and Alice's signature to make sure she agrees to withdraw from her account.
+You can generate the same group of transactions using atomic transfer mentioned above and have Alice and Bob signing their transactions respectively, but it doesn't gurantee that the combination will act as planned because someone may cheat in the process. For example, the fee payer may pay less than the fee being charged, or the sender doesn't make a transfer to the receiver at all. In the blockchain world, we should act in a *trustless* way - we should not trust any other prople in the system. The Dynamic Fee smart contract can make sure everything goes as planed by codes so no one can manipulate it. That's why we need to use a smart contract to very such transactions.
 
 ### Execution
 
 Press the test-tube button in the toolbar, choose `8.contract_delegated.json` and click *Run Test Transaction* button. Then wait for a while allowing transaction to complete. Once it completes, move to the explorer and refresh Alice's, Bob's and Charlie's pages respectively. You shall see Alice's balance decreased by 1 ALGO, Bob's decreased by 0.002 ALGO (since he paid fees for both Alice's transfer to Charlie as well as his to Alice), and Charlie's increased by 1 ALGO. In Alice's transaction history you will also see the consequence with one outbound transfer of 1 ALGO to Charlie and 0.001 ALGO inbound transfer from Bob.
-
-You can generate the same group of transactions using atomic transfer mentioned above and have Alice and Bob signing their transactions respectively, but it doesn't gurantee that the combination will act as planned because someone may cheat in the process. For example, the fee payer may pay less than the fee being charged, or the sender doesn't make a transfer to the receiver at all. In the blockchain world, we should act in a *trustless* way - we should not trust any other prople in the system. The Dynamic Fee smart contract can make sure everything goes as planed by codes so no one can manipulate it. That's why we need to use a smart contract to very such transactions.
 
 ## Next
 
