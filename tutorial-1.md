@@ -102,7 +102,7 @@ Algorand Studio will automatically open the newly created prroject. We will talk
 
 Open `1.pay.json`, you shall see all necessary information that defines a basic transfer transaction. It includes information such as the type (`pay`), the sender (`from`), the recipient (`to`), transaction amount, the signer alongside others. Here we defined a transfer of 10 ALGO from Alice to Bob and the transaction is digitally signed by Alice. Notice that you can use names stored in the *Keypair Manager* for addresses as they will be subsititued by Algorand Studio before the final execution.
 
-Click the test-tube button in the toolbar and choose `1.pay.json` in the popup window. Then click *Run Test Transaction* and wait for the transaction to complete.
+Click the test-tube button in the toolbar (at the top of the file tree) and choose `1.pay.json` in the popup window. Then click *Run Test Transaction* and wait for the transaction to complete.
 
 <p align="center">
   <img src="./screenshots/run_tests.png" width="720px">
