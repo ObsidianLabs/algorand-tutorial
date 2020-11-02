@@ -4,8 +4,6 @@
   <img src="./screenshots/main.png" width="720px">
 </p>
 
-English | [简体中文](README-CN.md)
-
 ## Introduction
 
 In this tutorial, we will work with [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) to develop Dynamic Fee and Limit Order contracts under Algorand test network.
