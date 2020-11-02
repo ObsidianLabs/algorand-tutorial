@@ -67,7 +67,7 @@ The official docs has provided a [detailed walkthrough](https://developer.algora
 
 ### Compilation
 
-Before you compile the contract, we need you to modify a few lines in the contract code.
+Before you compile the contract, we need to modify a few lines in the contract code.
 
 First, open the *Keypair Manager* through the key button at the bottom left corner. Copy Alice's address and copy it to `contract.teal` file in line 38 and line 72. Overwrite both addresses with Alice's address as they specify Alice as the only recipient allowed in this contract.
 
