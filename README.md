@@ -12,7 +12,7 @@ In this tutorial, we will work with [Algorand Studio](https://github.com/Obsidia
 
 After working through this tutorial, you should have had a brief understanding of Algorand Smart Contract development and using Algorand Studio.
 
-If you encounter any problem regarding this tutorial, feel free to report to us at [Github Issues](/issues).
+If you encounter any problem regarding this tutorial, feel free to report to us at [Github Issues](https://github.com/ObsidianLabs/AlgorandStudio/issues).
 
 ## Table of Contents
 
