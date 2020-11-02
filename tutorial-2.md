@@ -30,18 +30,6 @@ Algorand currently provides two programming language for ASC development - TEAL 
 
 The Dynamic Fee example is written in PyTeal. Algorand Studio will use the configuration file `config.json` to store the programming language used in the project. The project template will provide this config file automatically (which also sets the compiler) so you usually don't need to worry about it.
 
-### Compilation
-
-Before compiling the Dynamic Fee project, we need to modify a line in the `main.py` file. Put in Charlie's address on Line 5.
-
-You may notice there're two hammer buttons at the bottom of the editor window. They represent the PyTeal compiler and the TEAL compiler. Algorand Studio utilizes both to compile the Dynamic Fee smart contract. You should already installed both compilers in the Welcome screen. Otherwise, click the buttons and open their version managers to finish the installation.
-
-<p align="center">
-  <img src="./screenshots/main.png" width="720px">
-</p>
-
-Press the hammer button in the toolbar (at the top of the file tree) to initiate the compilation process. PyTeal compiler will interpret and convert the `.py` file to `.teal` format. TEAL compiler will further compile it into a `.tok` binary and a `.addr` file that contains the address of the contract. In Algorand it doesn't require deployment right after compilation. You can directly deposit tokens to the smart contract using the address in the `.addr` file as the recipient. The `.tok` binary is only needed when you want to execute the contract program, for example in a withdrawal transaction.
-
 ### Modes of use
 
 Stateless smart contracts are commonly used in [two scenarios](https://developer.algorand.org/docs/features/asc1/stateless/modes/):
@@ -59,7 +47,9 @@ You may find the second transaction is not signed by Alice. In fact, no `signers
 
 ### Contract code
 
-With an example transaction, it's easier to understand what the smart contract does. Let's now look at the PyTeal file `main.py`. In essense, the smart contract has prescribed a list of logic checks. 
+With an example transaction, it's easier to understand what the smart contract does. Let's now look at the PyTeal file `main.py`. Let's first add a missing piece of the code. Put in Charlie's address on Line 5.
+
+In essense, the smart contract has prescribed a list of logic checks.
 
 ``` py
 dynamic_fee_core = And(
@@ -79,6 +69,16 @@ dynamic_fee_core = And(
 With the parameters given in the contract file, the sender has to send *1 ALGO* to *Charlie* as the receiver and the fee payer has to send *the same amount of ALGO as the fee* to the *sender* (by default this is 0.001 ALGO). If we logically combine two transactions into one, it could be intepreted as a transfer transaction of 1 ALGO from Alice to Charlie while Bob pays for the transaction fee of 0.001 ALGO and Alice doesn't pay a fee as a consequence.
 
 You can generate the same group of transactions using atomic transfer mentioned above and have Alice and Bob signing their transactions respectively, but it doesn't gurantee that the combination will act as planned because someone may cheat in the process. For example, the fee payer may pay less than the fee being charged, or the sender doesn't make a transfer to the receiver at all. In the blockchain world, we should act in a *trustless* way - we should not trust any other prople in the system. The Dynamic Fee smart contract can make sure everything goes as planed by codes so no one can manipulate it. That's why we need to use a smart contract to very such transactions.
+
+### Compilation
+
+You may notice there're two hammer buttons at the bottom of the editor window. They represent the PyTeal compiler and the TEAL compiler. Algorand Studio utilizes both to compile the Dynamic Fee smart contract. You should already installed both compilers in the Welcome screen. Otherwise, click the buttons and open their version managers to finish the installation.
+
+<p align="center">
+  <img src="./screenshots/main.png" width="720px">
+</p>
+
+Press the hammer button in the toolbar (at the top of the file tree) to initiate the compilation process. PyTeal compiler will interpret and convert the `.py` file to `.teal` format. TEAL compiler will further compile it into a `.tok` binary and a `.addr` file that contains the address of the contract. In Algorand it doesn't require deployment right after compilation. You can directly deposit tokens to the smart contract using the address in the `.addr` file as the recipient. The `.tok` binary is only needed when you want to execute the contract program, for example in a withdrawal transaction.
 
 ### Execution
 
