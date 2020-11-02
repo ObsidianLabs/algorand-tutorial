@@ -18,4 +18,4 @@ This series of tutorial contains three separate articles showcasing Algorand dev
 
 1. [Tutorial 1](tutorial-1.md) talks about the setup and basic operations of Algorand Studio;
 1. [Tutorial 2](tutorial-2.md) illustrates a full development cycle through Dynamic Fee smart contract;
-2. [Tutorial 3](tutorial-3.md) introduces Algorand asset model through a LimitOrder example. We also go through a full ASA lifecycle by creating, compiling and calling a Limit Order smart contract.
+2. [Tutorial 3](tutorial-3.md) introduces Algorand asset model through a Limit Order example. We also go through a full ASA lifecycle by creating, compiling and calling a Limit Order smart contract.

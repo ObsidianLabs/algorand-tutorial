@@ -98,4 +98,4 @@ Press the test-tube button in the toolbar, choose `8.contract_delegated.json` an
 
 ## Next
 
-In the [next tutorial](tutorial-3.md), we will talk about the Algorand Standard Asset (ASA) model through a more sophisticated smart contract [LimitOrder](https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/).
+In the [next tutorial](tutorial-3.md), we will talk about the Algorand Standard Asset (ASA) model through a more sophisticated smart contract [Limit Order](https://developer.algorand.org/docs/reference/teal/templates/limit_ordera/).
