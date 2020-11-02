@@ -10,7 +10,7 @@ English | [简体中文](README-CN.md)
 
 In this tutorial, we will work with [Algorand Studio](https://github.com/ObsidianLabs/AlgorandStudio) to develop Dynamic Fee and Limit Order contracts under Algorand test network.
 
-After working through this tutorial, you should have had a brief understanding of Algorand Smart Contract development and using Algorand Studio.
+After working through this tutorial, you should have had a brief understanding of Algorand Smart Contract development using Algorand Studio.
 
 If you encounter any problem regarding this tutorial, feel free to report to us at [Github Issues](https://github.com/ObsidianLabs/algorand-tutorial/issues).
 
